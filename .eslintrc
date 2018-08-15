@@ -1,0 +1,31 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "extends": "yandex",
+  "rules": {
+    "indent": ["error", 2],
+    "space-before-function-paren": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"],
+    "prefer-arrow-callback": 1,
+    "valid-jsdoc": ["error", {
+      "requireReturn": false,
+      "requireParamDescription": false,
+      "requireReturnDescription": false,
+      "requireReturnType": true,
+      "requireParamType": true,
+      "prefer": {
+        "return": "return"
+      },
+      "preferType": {
+        "object": "Object",
+        "array": "Array"
+      }
+    }],
+    "require-jsdoc": 1
+  }
+}

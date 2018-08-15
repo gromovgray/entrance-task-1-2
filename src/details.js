@@ -1,5 +1,10 @@
-import { createChart } from './chart';
 
+import {createChart} from './chart';
+
+/**
+ * @param {ymaps} ymaps
+ * @return {Function}
+ */
 export function getDetailsContentLayout(ymaps) {
   const BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
     `{% if (properties.details) %}
@@ -29,7 +34,7 @@ export function getDetailsContentLayout(ymaps) {
       build: function() {
         BalloonContentLayout.superclass.build.call(this);
 
-        const { details } = this.getData().object.properties;
+        const {details} = this.getData().object.properties;
 
         if (details) {
           const container = this.getElement().querySelector('.details-chart');
@@ -46,9 +51,9 @@ export function getDetailsContentLayout(ymaps) {
         if (this.connectionChart) {
           this.connectionChart.destroy();
         }
-        
+
         BalloonContentLayout.superclass.clear.call(this);
-      }
+      },
     }
   );
 

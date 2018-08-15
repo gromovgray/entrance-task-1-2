@@ -1,11 +1,23 @@
-import { Chart } from 'chart.js';
 
+import {Chart} from 'chart.js';
+
+/**
+ * @param {boolean} isActive
+ * @param {number} alpha
+ * @return {string}
+ */
 function getColor(isActive, alpha = 1) {
-  return isActive
-    ? `rgba(54, 162, 235, ${alpha})`
-    : `rgba(255, 99, 132, ${alpha})`;
+  return isActive ?
+    `rgba(54, 162, 235, ${alpha})` :
+    `rgba(255, 99, 132, ${alpha})`;
 }
 
+/**
+ * @param {HTMLElelement} el
+ * @param {number} i
+ * @param {Array} data
+ * @return {string}
+ */
 function getLabel(el, i, data) {
   const x = new Date();
   x.setHours(x.getHours() - data.length + i);
@@ -15,6 +27,12 @@ function getLabel(el, i, data) {
   return x.toString();
 }
 
+/**
+ * @param {HTMLCanvasElement} container
+ * @param {Array} data
+ * @param {boolean} isActive
+ * @return {Chart}
+ */
 export function createChart(container, data, isActive) {
   const ctx = container.getContext('2d');
 
@@ -29,20 +47,20 @@ export function createChart(container, data, isActive) {
         {
           data: data,
           borderWidth: 1,
-            borderColor: borderColor,
-              backgroundColor: backgroundColor
-        }
-      ]
+          borderColor: borderColor,
+          backgroundColor: backgroundColor,
+        },
+      ],
     },
     options: {
-        legend: { 
-            display: false
-        },
-        scales: {
-            xAxes: [{ ticks: { display: false } }],
-            yAxes: [{ ticks: { beginAtZero: true} }]
-        }
-    }
+      legend: {
+        display: false,
+      },
+      scales: {
+        xAxes: [{ticks: {display: false}}],
+        yAxes: [{ticks: {beginAtZero: true}}],
+      },
+    },
   });
 
   return chart;

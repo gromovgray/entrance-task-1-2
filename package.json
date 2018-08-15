@@ -6,6 +6,9 @@
     "start": "webpack-dev-server"
   },
   "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-yandex": "^1.0.6",
+    "eslint-loader": "^2.1.0",
     "faker": "^4.1.0",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
